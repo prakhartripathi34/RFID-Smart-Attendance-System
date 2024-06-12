@@ -58,7 +58,7 @@ void loop() {
       // Serial.print("UID tag: ");
       // for (byte i = 0; i < mfrc522.uid.size; i++) {
       //   Serial.print("0x");
-      //   if (mfrc522.uid.uidByte[i] < 0x10) Serial.print("0");
+      //   if (mfrc522.uid.uidByte[i] < 0x10) Serial.print("0");                 //useful for debbugging process 
       //   Serial.print(mfrc522.uid.uidByte[i], HEX);
       //   if (i < mfrc522.uid.size - 1) Serial.print(", ");
       // }
@@ -114,12 +114,7 @@ void loop() {
   }
 }
 
-// Function to update attendance in the database
-void updateAttendance(int studentID, const char* status) {
-  // Implement your code to update the attendance status in the database
-  // based on the studentID and status parameters
-  
-  DateTime now = rtc.now();
+
 
   // Display the name of the student on the LCD
   lcd.clear();
@@ -128,13 +123,7 @@ void updateAttendance(int studentID, const char* status) {
   Serial.println(studentNames[studentID - 1]);
   Serial.println(" Present");  // -1 to adjust for array indexing
   Serial.println(validUIDs[0][studentID-1]);
-  // Serial.print(now.hour());
-  // Serial.print("::");
-  // Serial.print(now.minute());
-  // Serial.print("::");
-  // Serial.print(now.second());
-  // Serial.println();
-  // Serial.println(validUIDs[studentID-1]);
+ 
   lcd.setCursor(0, 1);  // Set cursor to the second line
   lcd.print("~");
   lcd.setCursor(2, 1);  // Set cursor position after 4 pixels
